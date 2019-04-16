@@ -92,8 +92,6 @@ RUN mkdir -p ~/.pip/ && \
     beautifulsoup4==4.6.0 \
     lxml==4.2.1 \
     jieba==0.39 \
-    networkx==2.1 \
-    catboost==0.8.1 \
     # k-lab plugin
     klab-autotime==0.0.2 && \
     jupyter nbextension install --user --py vega
