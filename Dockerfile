@@ -39,7 +39,7 @@ RUN su -m -l $NB_USER -c '\
     mkdir /home/$NB_USER/work && \
     mkdir /home/$NB_USER/input && \
     mkdir /home/$NB_USER/.jupyter && \
-    echo "cacert=/etc/ssl/certs/ca-certificates.crt" > /home/$NB_USER/.curlrc && \
+    echo "cacert=/etc/ssl/certs/ca-certificates.crt" > /home/$NB_USER/.curlrc' && \
     chown $NB_USER /usr/local/bin && \
     # Make sure /usr/local/ directories belong to user, and install fonts.
     chown $NB_USER /usr/local/share && \
