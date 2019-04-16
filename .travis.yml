@@ -1,0 +1,19 @@
+sudo: required
+services:
+    - docker
+before_install:
+    - sudo useradd -u 1000 kesci
+#    - sudo chown -R kesci test/
+script:
+    - bash build.sh
+after_success:
+    - docker images
+deploy:
+    - provider: script
+      script: bash docker_push.sh tags
+      on:
+        tags: true
+    - provider: script
+      script: bash docker_push.sh master
+      on:
+        branch: master
