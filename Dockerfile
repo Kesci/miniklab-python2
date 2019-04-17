@@ -40,11 +40,7 @@ RUN su -m -l $NB_USER -c '\
     mkdir /home/$NB_USER/input && \
     mkdir /home/$NB_USER/.jupyter && \
     echo "cacert=/etc/ssl/certs/ca-certificates.crt" > /home/$NB_USER/.curlrc' && \
-    chown $NB_USER /usr/local/bin && \
     # Make sure /usr/local/ directories belong to user, and install fonts.
-    chown $NB_USER /usr/local/share && \
-    chown -R $NB_USER /usr/local/lib && \
-    chown -R $NB_USER /usr/local/lib/python2.7/dist-packages/ && \
     mkdir -p /home/$NB_USER/.cache && chown $NB_USER -R /home/$NB_USER/.cache && \
     # Allow kesci run sudo apt-get
     echo "kesci ALL=NOPASSWD: /usr/bin/apt-get" > /etc/sudoers.d/kesci && chmod 0400 /etc/sudoers.d/kesci && \
@@ -55,7 +51,8 @@ RUN su -m -l $NB_USER -c '\
     python2 -m pip install ipykernel && \
     python2 -m ipykernel install && \
     chown $NB_USER /usr/local/bin && \
-    chown $NB_USER /usr/local/share && \
+    chown -R $NB_USER /usr/local/share && \
+    chown -R $NB_USER /usr/local/lib && \
     chown -R $NB_USER /usr/local/lib/python2.7
 
 WORKDIR /home/$NB_USER/work
