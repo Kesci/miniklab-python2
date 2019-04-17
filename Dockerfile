@@ -50,10 +50,7 @@ RUN su -m -l $NB_USER -c '\
     rm get-pip.py && \
     python2 -m pip install ipykernel && \
     python2 -m ipykernel install && \
-    chown $NB_USER /usr/local/bin && \
-    chown -R $NB_USER /usr/local/share && \
-    chown -R $NB_USER /usr/local/lib && \
-    chown -R $NB_USER /usr/local/lib/python2.7
+    chown -R $NB_USER /usr/local
 
 WORKDIR /home/$NB_USER/work
 USER $NB_USER
